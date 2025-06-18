@@ -5,8 +5,14 @@ document.getElementById("comentarioForm").addEventListener("submit", async funct
 
     const autor = document.getElementById("autor").value.trim();
     const contenido = document.getElementById("contenido").value.trim();
+    const btn = document.getElementById("btnPublicar");
+    const spinner = document.getElementById("spinner");
 
     if (!autor || !contenido) return;
+
+    // Mostrar spinner y deshabilitar botón
+    spinner.classList.remove("d-none");
+    btn.disabled = true;
 
     try {
         const res = await fetch(API_URL, {
@@ -23,8 +29,13 @@ document.getElementById("comentarioForm").addEventListener("submit", async funct
         }
     } catch (error) {
         console.error("Error al enviar:", error);
+    } finally {
+        // Ocultar spinner y reactivar botón
+        spinner.classList.add("d-none");
+        btn.disabled = false;
     }
 });
+
 
 function formatearFecha(fechaISO) {
     const fecha = new Date(fechaISO);
@@ -35,17 +46,15 @@ function formatearFecha(fechaISO) {
 }
 
 async function cargarComentarios() {
+    const contenedor = document.getElementById("comentariosLista");
+    contenedor.innerHTML = ""; // Limpia esqueleto antes de cargar
+
     try {
         const res = await fetch(API_URL);
-        console.log("Status:", res.status);
         const datos = await res.json();
-        console.log("Datos recibidos:", datos); // <== AÑADE ESTO
-
-        const contenedor = document.getElementById("comentariosLista");
-        contenedor.innerHTML = "";
+        contenedor.innerHTML = ""; // Asegura que se vacíe el loader
 
         datos.reverse().forEach(item => {
-            console.log("Agregando:", item); // <== AÑADE ESTO
             const div = document.createElement("div");
             div.classList.add("comentario-item", "mb-4", "p-3", "rounded");
             div.innerHTML = `
@@ -59,7 +68,9 @@ async function cargarComentarios() {
         });
     } catch (error) {
         console.error("Error al cargar comentarios:", error);
+        contenedor.innerHTML = `<div class="text-danger">No se pudieron cargar los comentarios.</div>`;
     }
 }
+
 
 window.addEventListener("DOMContentLoaded", cargarComentarios);

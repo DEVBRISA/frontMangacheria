@@ -48,6 +48,7 @@ body {
 
 /* Desktop (no cambia nada) */
 @media (min-width: 992px) {
+
     .navbar-toggler,
     .navbar-brand {
         display: none !important;
@@ -72,7 +73,7 @@ body {
     .navbar-wrapper {
         padding: 0px;
     }
-    
+
     .navbar-custom {
         border-radius: 0;
         box-shadow: none;
@@ -103,10 +104,20 @@ body {
 }
 
 /* FORMULARIO */
+.foro-titulo {
+    color: var(--color-titulos);
+    font-family: "Inknut Antiqua", serif;
+    font-weight: bolder;
+}
+
+.foro-subtitulo {
+    color: var(--color-titulos);
+}
+
 .comentario-item {
     background-color: #fff;
     border-left: 4px solid var(--color-opcional1);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     color: #333;
 }
 
@@ -115,8 +126,28 @@ body {
 }
 
 .mt-5 {
-    margin-top: 5rem !important;
+    margin-top: 4rem !important;
 }
+
+
+#btnPublicar {
+    background-color: var(--color-titulos);
+    color: white;
+    border: none;
+}
+
+#btnPublicar:hover {
+    background-color: #2e5249;
+    /* Un poco más oscuro */
+}
+
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-opcional1) !important;
+    box-shadow: 0 0 0 0.2rem rgba(123, 168, 133, 0.25) !important;
+}
+
 
 /* FOOTER */
 footer {
