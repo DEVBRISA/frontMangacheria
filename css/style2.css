@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..900&family=Inknut+Antiqua:wght@300..900&display=swap');
+
+:root {
+    --color-menu: #F6A700;
+    --color-fondo: #FFFAD7;
+    --color-titulos: #39675D;
+    --color-opcional1: #7BA885;
+}
+
+body {
+    background: var(--color-fondo);
+    margin: 0;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+/* NAVBAR */
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar-custom {
+    background-color: var(--color-menu);
+    border-radius: 30px;
+    padding: 10px 40px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-custom .nav-link {
+    color: white !important;
+    font-weight: bold;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+
+/* NavBar resposive */
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Desktop (no cambia nada) */
+@media (min-width: 992px) {
+    .navbar-toggler,
+    .navbar-brand {
+        display: none !important;
+    }
+
+    .navbar-custom {
+        border-radius: 30px;
+        max-width: 900px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .full-screen-menu {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-wrapper {
+        padding: 0px;
+    }
+    
+    .navbar-custom {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 10px 15px;
+    }
+
+    .full-screen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--color-menu);
+        z-index: 999;
+        padding-top: 80px;
+    }
+
+    .navbar-nav {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .navbar-custom .nav-link {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}
+
+/* FORMULARIO */
+.comentario-item {
+    background-color: #fff;
+    border-left: 4px solid var(--color-opcional1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    color: #333;
+}
+
+.comentario-item h6 {
+    color: var(--color-titulos);
+}
+
+.mt-5 {
+    margin-top: 5rem !important;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--color-menu);
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    background-color: var(--color-fondo);
+    margin: 10px;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: var(--color-titulos);
+    opacity: 0.9;
+}
+
+.socialIcons a:hover {
+    background-color: var(--color-titulos);
+    transition: 0.5s;
+}
+
+.socialIcons a:hover i {
+    color: white;
+    transition: 0.5s;
+}
+
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+    flex-wrap: wrap;
+}
+
+.footerNav ul li a {
+    color: var(--color-fondo);
+    margin: 20px;
+    text-decoration: none;
+    font-size: 14pt;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footerNav ul li a:hover {
+    opacity: 1;
+}
+
+.footerBottom {
+    background-color: var(--color-titulos);
+    padding: 20px;
+    text-align: center;
+}
+
+.footerBottom p {
+    color: var(--color-fondo);
+}
+
+.designer {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+
+@media (max-width: 576px) {
+    .navbar-custom {
+        padding: 10px 20px;
+        max-width: 100%;
+    }
+
+    .navbar-custom .nav-link {
+        margin: 0 8px;
+        font-size: 0.9rem;
+    }
+
+    .footerNav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerNav ul li a {
+        margin: 10px 0;
+    }
+
+    .socialIcons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
